@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-upload
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-upload
+  template:
+    metadata:
+      labels:
+        app: flask-upload
+    spec:
+      containers:
+      - name: flask-upload
+        image: docker.io/yuguo24/flask-upload:latest
+        ports:
+        - containerPort: 5000
